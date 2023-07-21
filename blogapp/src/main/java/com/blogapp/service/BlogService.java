@@ -5,6 +5,7 @@ import com.blogapp.dto.BlogDtoConverter;
 import com.blogapp.dto.CreateBlogRequest;
 import com.blogapp.dto.UpdateBlogRequest;
 import com.blogapp.model.Blog;
+import com.blogapp.model.User;
 import com.blogapp.repository.BlogRepository;
 import org.hibernate.sql.Update;
 import org.springframework.stereotype.Service;
@@ -22,6 +23,7 @@ public class BlogService {
     }
 
     public BlogDto createBlog(CreateBlogRequest blogRequest) {
+
         Blog blog = new Blog(null,
                 blogRequest.getCreationDate(), blogRequest.getAuthor(), blogRequest.getDescription(),
                 blogRequest.getTitle(), blogRequest.getVisitorCount(), blogRequest.getImage());
@@ -29,6 +31,7 @@ public class BlogService {
     }
 
     public List<BlogDto> getAllBlog() {
+
         return blogDtoConverter.convert(blogRepository.findAll());
     }
 

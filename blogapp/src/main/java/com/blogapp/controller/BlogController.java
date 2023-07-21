@@ -1,25 +1,26 @@
 package com.blogapp.controller;
-
 import com.blogapp.dto.BlogDto;
 import com.blogapp.dto.CreateBlogRequest;
 import com.blogapp.model.Blog;
+import com.blogapp.model.User;
 import com.blogapp.service.BlogService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import com.blogapp.dto.UpdateBlogRequest;
 @RestController
+@CrossOrigin(origins = "http://localhost:5173")
+
 @RequestMapping("/v1/blog")
+
 public class BlogController {
     private final BlogService blogService;
-
-
     public BlogController(BlogService blogService) {
         this.blogService = blogService;
     }
 
     @PostMapping("/create-blog")
-    public ResponseEntity<BlogDto> createBlogs(@RequestBody CreateBlogRequest createBlogRequest) {
+    public ResponseEntity<BlogDto> createBlogs(@RequestBody CreateBlogRequest createBlogRequest) throws Exception {
         return ResponseEntity.ok(blogService.createBlog(createBlogRequest));
     }
 

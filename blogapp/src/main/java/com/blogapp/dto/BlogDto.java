@@ -11,6 +11,7 @@ import java.time.OffsetDateTime;
 @Builder
 @Data
 public class BlogDto {
+    private Long id;
     private OffsetDateTime creationDate;
     private String author;
     private String description;

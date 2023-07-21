@@ -10,6 +10,7 @@ import java.util.stream.Collectors;
 public class BlogDtoConverter {
     public BlogDto convert(Blog from) {
         return new BlogDto(
+                from.getId(),
                 from.getCreationDate(),
                 from.getAuthor(),
                 from.getDescription(), from.getTitle(),

@@ -1,5 +1,32 @@
-*,body{
+*,
+body {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+ul li {
+    list-style: none;
+    margin-right: 15px;
+
+}
+
+ul li a {
+    text-transform: capitalize;
+    color: black;
+}
+.header{
+    position: relative;
+    height: 70px;
+}
+.footer{
+    position: fixed;
+    width: 100%;
+    bottom: 0;
 }
