@@ -1,4 +1,5 @@
 package com.blogapp.dto;
+import com.blogapp.model.User;
 import lombok.*;
 import java.time.OffsetDateTime;
 

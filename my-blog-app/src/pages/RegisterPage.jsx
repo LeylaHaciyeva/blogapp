@@ -1,14 +1,45 @@
+// import { useState } from "react";
 const RegisterPageForUser = () => {
+  // const [userData, setUserData] = useState({
+  //   "firstname":"",
+  //   "lastname":"",
+  //   "email":"",
+  //   "password":"",
+  //   "role":null
+  // });
+  const registerUser = (e) => {
+    e.preventDefault();
+    // setUserData({
+    //   firstname: e.target.firstname.value,
+    //   lastname: e.target.lastname.value,
+    //   email: e.target.email.value,
+    //   password: e.target.password.value,
+    //   role: e.target.role.value
+    // });
+    fetch("http://localhost:8080/api/v1/auth/register", {
+      method: 'POST',
+        headers: { 'Content-Type': 'application/json'},
+        body: JSON.stringify({
+          firstname: e.target.firstname.value,
+          lastname: e.target.lastname.value,
+          email: e.target.email.value,
+          password: e.target.password.value,
+          role: e.target.role.value
+        })
+    })
+  };
   return (
     <div className="container d-flex justify-content-center">
-      <form className="signupForm">
+      <form className="signupForm" onSubmit={(e) => registerUser(e)}>
         <div className="form-group">
           <div className="">
-            <label htmlFor="role" className="col-form-label">Role secin</label>
-            <br/>
+            <label htmlFor="role" className="col-form-label">
+              Role secin
+            </label>
+            <br />
             <select className="w-100" name="role" id="role">
-              <option value="admin">Admin</option>
-              <option value="user">User</option>
+              <option value="ADMIN">Admin</option>
+              <option value="USER">User</option>
             </select>
           </div>
         </div>
