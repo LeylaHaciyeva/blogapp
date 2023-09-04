@@ -21,10 +21,12 @@ public class BlogController {
         this.authenticationTokenService = authenticationTokenService;
     }
 
+
     @PostMapping("/create-blog")
     public ResponseEntity<HttpStatus> createBlogs(@RequestBody CreateBlogRequest createBlogRequest,
                                                @RequestParam("token") String token
     ) throws Exception {
+        System.out.println("test");
         authenticationTokenService.authentication(token);
         User user = authenticationTokenService.getUser(token);
         blogService.createBlog(createBlogRequest,user);
